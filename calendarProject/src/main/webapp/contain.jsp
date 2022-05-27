@@ -65,7 +65,7 @@ h1{
 		<div class="section" id="section1"><h1><i class="bi bi-emoji-sunglasses"></i></h1><p><i class="bi bi-file-text"></i> 차곡차곡 쌓여나가는 나의 일상</p></div>
 		<div class="section" id="section2"><h1><i class="bi bi-palette"></i></h1><p><i class="bi bi-display"></i> 다시 올 때마다 새로운 느낌으로</p></div>
 		<div class="section" id="section3"><h1><i class="bi bi-calendar3"></i></h1></div>
-		<div class="section" id="section4"><h1>Some section</h1></div>
+		<div class="section" id="section4"><h1><i class="bi bi-pencil"></i></h1></div>
 	</div>
 	<script type="text/javascript">
 		let myFullpage = new fullpage('#fullpage', {
