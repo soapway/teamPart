@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.mapper.MemberMapper">
+	
+    <!-- 회원가입 -->
+	<insert id="memberJoin">
+		insert into member values(#{userId}, #{userPassword}, #{userName}, #{userTel})
+	</insert>
+	
+	<!-- 아이디 중복검사 -->
+  	<select id="idCheck" resultType="int">
+  		select count(*) from member where userId = #{userId}
+  	</select>
+  	
+  	<!-- 로그인 -->
+    <select id="memberLogin" resultType="com.team.domain.MemberVO">
+       	select userId, userPassword, userName, userTel from member where userId = #{userId} and userPassword = #{userPassword}
+    </select>
+	
+</mapper>

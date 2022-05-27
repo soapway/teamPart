@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+>
+<mapper namespace="com.team.mapper.DiaryMapper">
+
+	<select id="getListWithPaging"
+		resultType="com.team.domain.DiaryVO">
+		<![CDATA[
+		SELECT user_id, no, title, content, reg_date
+		FROM (
+		       select /*+ INDEX_DESC(diary index_diary)*/ 
+		              rownum rn, user_id, no, title, content, reg_date
+		       from   diary
+		       where  user_id = #{userId}
+		)
+		WHERE rn > (#{pageNum}-1)*#{amount}
+		AND   rn <= #{pageNum} * #{amount}
+		]]>
+	</select>
+
+	<select id="read" resultType="com.team.domain.DiaryVO">
+	<![CDATA[
+	SELECT user_id, no, title, content, textColor, color, reg_date
+	FROM   diary
+	WHERE  no = #{no}
+	]]>
+	</select>
+
+	<delete id="delete">
+	<![CDATA[
+	DELETE diary
+	WHERE  no = #{no}
+	]]>
+
+	</delete>
+
+	<update id="update">
+	<![CDATA[
+	UPDATE diary
+	SET    user_id = #{user_id} ,
+    	   title = #{title}, 
+     	   content = #{content},
+     	   textColor = #{textColor}, 
+     	   color = #{color}
+	WHERE  no = #{no}
+	]]>
+	</update>
+
+	<insert id="insert">
+	<![CDATA[
+	insert into diary(user_id, no, title, content, textColor, color, reg_date)
+	values(#{user_id}, diary_seq.nextval, #{title}, #{content}, #{textColor}, #{color}, sysdate)
+	]]>
+	</insert>
+
+	<select id="countList" resultType="int">
+	<![CDATA[
+	SELECT COUNT(*)
+	FROM   diary
+	WHERE  user_id = #{userId}
+	]]>
+	</select>
+
+	<select id="oneYearAgo" resultType="com.team.domain.DiaryVO">
+	<![CDATA[
+	SELECT USER_ID, NO, TITLE, CONTENT, REG_DATE
+      FROM(
+        	SELECT USER_ID, NO, TITLE, CONTENT, REG_DATE, ROWNUM "RN"
+              FROM DIARY
+             WHERE REG_DATE LIKE sysdate - 365
+           )
+     WHERE RN = 1
+     ]]>
+	</select>
+	
+	<select id="getCalList" resultType="com.team.domain.CalendarVO">
+	<![CDATA[
+	SELECT title, reg_date "start", reg_date + 1/24 "end", textColor, color, concat('/diary/readView?no=', to_char(no)) "url"
+      FROM diary
+     WHERE user_id = #{userId}
+       AND reg_date BETWEEN TO_DATE(#{startTime}, 'YYYY-MM-DD') AND TO_DATE(#{endTime}, 'YYYY-MM-DD')
+	]]>
+	
+	</select>
+
+</mapper>
