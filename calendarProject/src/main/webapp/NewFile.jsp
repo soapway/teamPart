@@ -18,8 +18,8 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
+<jsp:include page="testNav.jsp"/>
 <div class="container-fluid">
-<jsp:include page="contain.jsp"/>
 </div>
 </body>
 </html>

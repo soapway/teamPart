@@ -16,7 +16,7 @@ function alertYou() {
 }
 </script>
 <body>
-<jsp:include page="../top.jsp"/>
+<jsp:include page="../other/top.jsp"/>
 	<main class="container p-5">
 		<%!public String css() {
 		HashMap<Integer, String> map = new HashMap<>();

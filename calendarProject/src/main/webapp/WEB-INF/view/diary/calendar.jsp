@@ -112,8 +112,8 @@
 </script>
 </head>
 <body>
-	<jsp:include page="../top.jsp" />
-	<div class="container">
+	<jsp:include page="../other/top.jsp" />
+	<div class="container my-4 py-4">
 		<jsp:include page="nav.jsp" />
 		<div id="calendar"></div>
 		<input type="hidden" value='${userId}' name="userId" id="userId">

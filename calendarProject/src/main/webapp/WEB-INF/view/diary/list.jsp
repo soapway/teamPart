@@ -23,10 +23,10 @@
 		String css = map.get(i);
 		return css;
 	}%>
-	<jsp:include page="../top.jsp"/>
-	<div class="container">
+	<jsp:include page="../other/top.jsp"/>
+	<div class="container my-4 py-4">
 	<jsp:include page="nav.jsp"/>
-		<div class="card my-4 text-bg-<%=css(0)%>">
+		<div class="card mb-4 text-bg-<%=css(0)%>">
 			<div class="card-header">📆 지난 오늘 기록한 이야기</div>
 			<div class="card-body">
 				<div class="row">

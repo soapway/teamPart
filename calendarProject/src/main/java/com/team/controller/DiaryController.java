@@ -1,5 +1,8 @@
 package com.team.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -112,4 +115,16 @@ public class DiaryController {
 			}
 			return jsonString;
 		}
+		
+		/* 로그아웃 */
+	    @GetMapping("/logout.do")
+	    public String logoutGET(HttpServletRequest request) throws Exception{
+	    	log.info("logoutMainGET메서드 진입");
+	        
+	        HttpSession session = request.getSession();
+	        
+	        session.invalidate();
+	        
+	        return "redirect:/member/main";
+	    }
 }
