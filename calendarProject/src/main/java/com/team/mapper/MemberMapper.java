@@ -12,4 +12,10 @@ public interface MemberMapper {
 	
 	/* 로그인 */
     public MemberVO memberLogin(MemberVO member);
+    
+ // 회원 수정
+    public void updateMember(MemberVO member);
+    
+    // 회원 탈퇴
+    public void deleteMember(MemberVO member);
 }

@@ -18,5 +18,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="memberLogin" resultType="com.team.domain.MemberVO">
        	select userId, userPassword, userName, userTel from member where userId = #{userId} and userPassword = #{userPassword}
     </select>
+	<!-- 회원 정보 수정 -->
+	<update id="updateMember">
+		update member set userPassword = #{userPassword}, userName = #{userName}, userTel = #{userTel}
+		where userId = #{userId}
+	</update>
 	
+	<!-- 회원 탈퇴 -->
+	<delete id="deleteMember">
+		delete from member where userId=#{userId}
+	</delete>
 </mapper>

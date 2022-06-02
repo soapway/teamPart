@@ -55,7 +55,7 @@
                                 <span class="id_input_re_1">사용 가능한 아이디입니다.</span>
 								<span class="id_input_re_2">아이디가 이미 존재합니다.</span>
 								<span class="final_id_ck">아이디를 입력해주세요.</span>
-								<sapn class="mail_input_box_warn"></sapn>
+								<span class="mail_input_box_warn"></span>
                             </div>
                             <div class="form-group" style="padding-top: 15px;">
                                 <input type="password" class="form-control pw_input" name="userPassword" placeholder="비밀번호">

@@ -2,6 +2,8 @@ package com.team.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.team.domain.CalendarVO;
 import com.team.domain.Criteria;
 import com.team.domain.CriteriaCal;
@@ -32,5 +34,8 @@ public interface DiaryService {
 		
 		//8. 달력 불러오기
 		public List<CalendarVO> getCalList(CriteriaCal cal);
+		
+		//9. 로그아웃
+		public void logout(HttpServletRequest request);
 
 }

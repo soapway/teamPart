@@ -120,11 +120,7 @@ public class DiaryController {
 	    @GetMapping("/logout.do")
 	    public String logoutGET(HttpServletRequest request) throws Exception{
 	    	log.info("logoutMainGET메서드 진입");
-	        
-	        HttpSession session = request.getSession();
-	        
-	        session.invalidate();
-	        
+	        service.logout(request);
 	        return "redirect:/member/main";
 	    }
 }

@@ -31,4 +31,18 @@ public class MemberServiceImpl implements MemberService {
         
         return membermapper.memberLogin(member);
     }
+
+	@Override
+	public void updateMember(MemberVO member) throws Exception {
+		// TODO Auto-generated method stub
+		membermapper.updateMember(member);
+		
+	}
+
+	@Override
+	public void deleteMember(MemberVO member) throws Exception {
+		// TODO Auto-generated method stub
+		membermapper.deleteMember(member);
+		
+	}
 }

@@ -2,6 +2,9 @@ package com.team.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Service;
 
 import com.team.domain.CalendarVO;
@@ -74,6 +77,14 @@ public class DiaryServiceImpl implements DiaryService {
 		// TODO Auto-generated method stub
 		log.info("service getCalList : run");
 		return mapper.getCalList(cal);
+	}
+
+	@Override
+	public void logout(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+        
+        session.invalidate();
 	}
 	
 	
