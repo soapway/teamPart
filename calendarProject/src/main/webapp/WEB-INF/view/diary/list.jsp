@@ -91,7 +91,8 @@
 			<c:if test="${list[0].no != null}">
 			<div class="col-4 text-end">
 				<div class="btn-group" role="group">
-					<%!int total;
+					<%!
+					int total;
 					Criteria criteria;
 					List<DiaryVO> list;
 					int pageNum;

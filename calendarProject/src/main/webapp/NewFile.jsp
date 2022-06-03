@@ -20,6 +20,7 @@
 	src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
 </head>
 <body>
+<input type="hidden" value="aaa@aaa.com" id="userId">
 	<div style="padding: 10rem;">
 		<canvas id="myChartEx" width="400" height="400"
 			aria-label="chart graphic" role="img">
